@@ -20,6 +20,9 @@ function FSCalculator( $overrides_attr ){
     $overrides_attr
   );
 
+  // Include FSC Table
+  include('class/FSC_Table.php');
+
   ob_start();
 
   include('templates/widget.php');
