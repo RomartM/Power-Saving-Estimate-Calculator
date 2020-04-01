@@ -1,6 +1,6 @@
 <?php
 
-class FSC_Table {
+class PSE_Table {
 
   private function create_tag($name, $content = "tmpl", $class=""){
     $tmpl_class = ( ( $class !== "" ) ? "class=\"{$class}\"":"");
@@ -37,7 +37,11 @@ class FSC_Table {
     $tmpl = "";
     if ($method == 'create_data') {
       for ($val_iterator=0; $val_iterator < count($row_values); $val_iterator++) {
-        $tmpl .= self::create_tag( "tr", self::create_data($row_values[$val_iterator]) );
+        $filter = "";
+        if(substr($row_values[$val_iterator][0], 0, 4) == "txt_"){
+          $filter = substr(strtolower(str_replace("(", "", str_replace(")", "", str_replace(" ", "_", $row_values[$val_iterator][0])))), 4);
+        }
+        $tmpl .= self::create_tag( "tr", self::create_data($row_values[$val_iterator]), $filter);
       }
     }else{
         $tmpl .= self::create_tag( "tr", self::create_header($row_values) );

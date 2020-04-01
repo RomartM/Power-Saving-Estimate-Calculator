@@ -1,14 +1,28 @@
 <?php
-$template_defaults = array("Usage Breakdown", "Total	Current", "KWH Rate", "Daily Saving", "Quarterly Saving", "Annual Saving");
+$template_defaults = array("Usage Breakdown", "Total", "Current KWH Rate", "Daily Saving", "Quarterly Saving", "Annual Saving");
 
-$table = FSC_Table::create("name_id", array(
+function alterFirstValue($horizontal_header_name, $template){
+  $template['0'] = $horizontal_header_name;
+  return $template;
+}
+
+$table = PSE_Table::create("pse_usage_breakdown", array(
   "thead"=> $template_defaults,
   "tbody"=> array( // CSS Class based not value
-    $template_defaults
+    alterFirstValue("txt_Usage Savings", $template_defaults),
+    alterFirstValue("txt_Storage Savings", $template_defaults),
+    alterFirstValue("txt_Export Savings (FIT)", $template_defaults)
   )
 ));
 
-$table2 = FSC_Table::create("name_id", array(
+$table1 = PSE_Table::create("pse_usage_breakdown_total", array(
+  "thead"=> array("", "Quarterly Saving", "Annual Saving"),
+  "tbody"=> array( // CSS Class based not value
+    array("txt_Total Savings", "Quarterly Saving", "Annual Saving")
+  )
+));
+
+$table2 = PSE_Table::create("daily_kwh_by_month", array(
   "thead"=> array("KWH Day", "Daily KWH by Month"),
   "tbody"=> array( // CSS Class based not value
     array("txt_January", "January"),
@@ -27,7 +41,7 @@ $table2 = FSC_Table::create("name_id", array(
 ));
 
 echo $table;
+echo $table1;
 echo $table2;
-
 
 ?>

@@ -1,0 +1,11 @@
+.pse-office.row {
+    padding-bottom: 15px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+.pse-office .control-label {
+    text-align: center !important;
+    width: 100%;
+}
