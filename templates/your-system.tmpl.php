@@ -6,7 +6,7 @@ $table = PSE_Table::create("pse_your_system", array(
   "tbody"=> array( // CSS Class based not value
     $template_defaults
   )
-));
+), "pse-vertical-table-layout");
 
 echo $table;
 ?>

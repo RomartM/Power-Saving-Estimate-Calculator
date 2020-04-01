@@ -1,11 +1,53 @@
 .pse-office.row {
-    padding-bottom: 15px;
-    margin-left: 20%;
-    margin-right: 20%;
+  padding-bottom: 15px;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
-
 .pse-office .control-label {
-    text-align: center !important;
-    width: 100%;
+  text-align: center !important;
+  width: 100%;
+}
+
+/* Vertical Table */
+table.pse-vertical-table-layout {
+  display: flex;
+}
+
+table.pse-vertical-table-layout thead {
+  width: 60% !important;
+}
+
+table.pse-vertical-table-layout thead tr {
+  display: block !important;
+}
+
+table.pse-vertical-table-layout thead tr th {
+  display: flex;
+}
+
+table.pse-vertical-table-layout tbody {
+  width: 40% !important;
+}
+
+table.pse-vertical-table-layout tbody tr {
+  display: block !important;
+}
+
+table.pse-vertical-table-layout tbody tr td {
+  display: flex;
+}
+
+/* Usage Breakdown */
+#pse_usage_breakdown.pse-vertical-table-layout thead {
+  width: 30% !important;
+}
+
+#pse_usage_breakdown.pse-vertical-table-layout tbody {
+  width: 80% !important;
+  display: flex;
+}
+
+#pse_usage_breakdown.pse-vertical-table-layout tr.usage_savings, #pse_usage_breakdown.pse-vertical-table-layout tr.storage_savings, #pse_usage_breakdown.pse-vertical-table-layout tr.export_savings_fit {
+  width: calc(100% / 3)
 }

@@ -45,6 +45,14 @@
       return field_ids[field_name].val();
     }
 
+    function _get_peak_hours() {
+      return window.pse_utils._vlookup(fieldVal("office"), pse_json_vars["preset-data"].offices_dataset, 2);
+    }
+
+    function _get_solar_exported(value) {
+      return ((((1 - fieldVal("daytime_usage") / 100) * 100) * value) / 100);
+    }
+
     // Class Implementation
 
     class yourSystemCalculation {
@@ -59,7 +67,7 @@
       }
 
       _get_production_average() {
-        return _preset_data.peak_sun_hours.value;
+        return _get_peak_hours();
       }
 
       _get_loss_factor() {
@@ -169,7 +177,7 @@
         ];
 
         dataset.map(function(data) {
-          return data.push(((1 + fieldVal("smoothing_rate") * data[1]) / 100));
+          return data.push(((((1 + fieldVal("smoothing_rate") / 100) * 100) * data[1]) / 100));
         })
 
         return dataset;
@@ -197,6 +205,7 @@
       }
 
       _get_battery_usable() {
+        console.log(this.battery_usage_dataset());
         return window.pse_utils._vlookup(fieldVal("battery_model"), this.battery_usage_dataset(), 3);
       }
 
@@ -217,7 +226,7 @@
       }
 
       _get_export_amount() {
-        return ((_preset_data.solar_exported.value * this.ifAllPowerUsed._get_kwh_daily()) / 100);
+        return _get_solar_exported(this.ifAllPowerUsed._get_kwh_daily());
       }
 
       _get_storage_kwh() {
@@ -229,7 +238,7 @@
       }
 
       _get_percentage(value) {
-        return (((100 - fieldVal('system_loss_factor')) * value) / 100);
+        return ((((1 - fieldVal('system_loss_factor') / 100) * 100) * value) / 100);
       };
 
       // Usage Saving Calculation

@@ -50,8 +50,8 @@ class PSE_Table {
   }
 
 
-  public function create( $identifier, $object_data ){
-    $table = "<table id=\"{$identifier}\" class=\"table table-bordered table-sm\">tmpl</table>";
+  public function create( $identifier, $object_data, $class_name=""){
+    $table = "<table id=\"{$identifier}\" class=\"table table-bordered table-sm {$class_name}\">tmpl</table>";
 
     $thead = self::create_tag( "thead", self::create_row( $object_data["thead"],'create_header') );
     $tbody = self::create_tag( "tbody", self::create_row( $object_data["tbody"], 'create_data') );

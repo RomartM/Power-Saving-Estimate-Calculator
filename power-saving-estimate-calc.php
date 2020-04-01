@@ -58,8 +58,7 @@ function pse_assets() {
              'feed_in_tariff'=>array('value'=>0.16),
              'system_loss_factor'=>array('value'=>0),
              'smoothing_rate'=>array('value'=>25),
-             'peak_sun_hours'=>array('value'=>4.2),
-             'solar_exported'=>array('value'=>40),
+             'offices_dataset'=> array(array('Brisbane', 4.2), array('Cairns', 4.2), array('Melbourne', 3.6), array('Sydney', 3.9)),
              'currency'=>array('value'=> '$')
         );
         wp_localize_script('pse-script', 'pse_json_vars', array('preset-data'=> $preset_input_data ) );

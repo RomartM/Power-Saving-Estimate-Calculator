@@ -7,7 +7,7 @@ function alterFirstValue($horizontal_header_name, $template){
 }
 
 $table = PSE_Table::create("pse_usage_breakdown", array(
-  "thead"=> $template_defaults,
+"thead"=> $template_defaults,
   "tbody"=> array( // CSS Class based not value
     alterFirstValue("txt_Usage Savings", $template_defaults),
     alterFirstValue("txt_Storage Savings", $template_defaults),
