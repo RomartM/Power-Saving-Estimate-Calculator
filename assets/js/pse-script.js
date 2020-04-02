@@ -91,7 +91,7 @@
         this.table.setText(".production_average", this._get_production_average());
         this.table.setText(".kwh_daily", this._get_kwh_daily().toFixed(2));
         this.table.setText(".kwh_quarterly", window.pse_utils._commas(window.pse_utils._round(this._get_kwh_quarterly(), 0)));
-        this.table.setText(".kwh_annualy", window.pse_utils._commas(this._get_kwh_annualy()));
+        this.table.setText(".kwh_annualy", window.pse_utils._commas(window.pse_utils._round(this._get_kwh_annualy(), 2)));
         this.table.setText(".loss_factor", String(this._get_loss_factor()).concat("%"));
       }
     }
