@@ -1,3 +1,65 @@
+/* Global Styles */
+.pse-calc select, .pse-calc input {
+  background-color: #ffcd3942 !important;
+  border-style: solid !important;
+  border-color: #ffcd39 !important;
+  color: #054e77 !important;
+  font-weight: 600 !important;
+}
+
+.pse-calc.pse-shortcode {
+  padding: 25px;
+}
+
+.pse-calc h3 {
+  color: rgb(5, 78, 132);
+}
+
+.pse-calc .input-group-addon {
+  background-color: #ffcd39;
+  border-color: #ffcd39;
+  color: #054e77;
+  font-weight: 400;
+}
+
+.pse-calc label {
+  color: #424242;
+}
+
+.pse-calc table * {
+  border-color: #42424221 !important;
+}
+
+/* Vertical Table */
+.pse-vertical-table-layout {
+  display: flex;
+}
+
+.pse-vertical-table-layout thead {
+  width: 60% !important;
+}
+
+.pse-vertical-table-layout thead tr {
+  display: block !important;
+}
+
+.pse-vertical-table-layout thead tr th {
+  display: flex;
+}
+
+.pse-vertical-table-layout tbody {
+  width: 40% !important;
+}
+
+.pse-vertical-table-layout tbody tr {
+  display: block !important;
+}
+
+.pse-vertical-table-layout tbody tr td {
+  display: flex;
+}
+
+/* Office Field  */
 .pse-office.row {
   padding-bottom: 15px;
   margin-left: 20%;
@@ -9,45 +71,231 @@
   width: 100%;
 }
 
-/* Vertical Table */
-table.pse-vertical-table-layout {
-  display: flex;
-}
-
-table.pse-vertical-table-layout thead {
-  width: 60% !important;
-}
-
-table.pse-vertical-table-layout thead tr {
-  display: block !important;
-}
-
-table.pse-vertical-table-layout thead tr th {
-  display: flex;
-}
-
-table.pse-vertical-table-layout tbody {
-  width: 40% !important;
-}
-
-table.pse-vertical-table-layout tbody tr {
-  display: block !important;
-}
-
-table.pse-vertical-table-layout tbody tr td {
-  display: flex;
-}
-
 /* Usage Breakdown */
-#pse_usage_breakdown.pse-vertical-table-layout thead {
-  width: 30% !important;
+#pse_usage_breakdown td, #pse_usage_breakdown th {
+  text-align: center;
 }
 
-#pse_usage_breakdown.pse-vertical-table-layout tbody {
-  width: 80% !important;
-  display: flex;
+#pse_usage_breakdown td:first-child, #pse_usage_breakdown th:first-child {
+  justify-content: flex-start;
 }
 
-#pse_usage_breakdown.pse-vertical-table-layout tr.usage_savings, #pse_usage_breakdown.pse-vertical-table-layout tr.storage_savings, #pse_usage_breakdown.pse-vertical-table-layout tr.export_savings_fit {
-  width: calc(100% / 3)
+#pse_usage_breakdown_total tr.total_savings * {
+  font-size: 25px;
+}
+
+#pse_usage_breakdown_total td.quarterly_saving::after, #pse_usage_breakdown_total td.annual_saving::after {
+  font-size: 16px;
+  margin-left: 8px;
+  color: #808080;
+  font-weight: 600;
+}
+
+#pse_usage_breakdown_total td.quarterly_saving::after {
+  content: "Quartery Saving";
+}
+
+#pse_usage_breakdown_total td.annual_saving::after {
+  content: "Annual Saving";
+}
+
+#pse_usage_breakdown_total thead {
+  display: none;
+}
+
+#pse_usage_breakdown_total * {
+  border: none !important;
+}
+
+#pse_usage_breakdown_total td.quarterly_saving, #pse_usage_breakdown_total td.annual_saving {
+  text-align: center;
+  color: #054e84;
+}
+
+#pse_usage_breakdown_total {
+  border: none;
+}
+
+@media screen and (max-width: 992px) {
+  #pse_usage_breakdown {
+    display: flex;
+  }
+
+  #pse_usage_breakdown thead {
+    width: 60% !important;
+  }
+
+  #pse_usage_breakdown thead tr {
+    display: block !important;
+  }
+
+  #pse_usage_breakdown thead tr th {
+    display: flex;
+  }
+
+  #pse_usage_breakdown tbody {
+    width: 40% !important;
+  }
+
+  #pse_usage_breakdown tbody tr {
+    display: block !important;
+  }
+
+  #pse_usage_breakdown tbody tr td {
+    display: flex;
+  }
+
+  #pse_usage_breakdown thead {
+    width: 30% !important;
+  }
+
+  #pse_usage_breakdown tbody {
+    width: 80% !important;
+    display: flex;
+  }
+
+  #pse_usage_breakdown tr.usage_savings, #pse_usage_breakdown tr.storage_savings, #pse_usage_breakdown tr.export_savings_fit {
+    width: calc(100% / 3)
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #pse_usage_breakdown_total td.quarterly_saving, #pse_usage_breakdown_total td.annual_saving {
+    display: inline-block;
+    width: 100%;
+  }
+
+  #pse_usage_breakdown_total tr.total_savings td:first-child {
+    width: 100%;
+    text-align: center !important;
+    display: inline-block;
+  }
+
+  #pse_usage_breakdown_total tr.total_savings {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #pse_usage_breakdown thead {
+    display: none;
+  }
+
+  #pse_usage_breakdown tbody {
+    width: 100% !important;
+  }
+
+  #pse_usage_breakdown tbody td::before {
+    content: attr(data-title);
+    font-size: 12px;
+    font-weight: normal;
+    padding-right: 8px;
+    line-height: 21px;
+  }
+
+  #pse_usage_breakdown tbody td:first-child::before {
+    display: none;
+  }
+
+  #pse_usage_breakdown tbody td {
+    font-weight: 700;
+  }
+}
+
+@media screen and (max-width:616px) {
+  #pse_usage_breakdown tbody td::before {
+    position: absolute;
+    left: 10px;
+  }
+
+  #pse_usage_breakdown tbody {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #pse_usage_breakdown tbody tr {
+    width: 100% !important;
+  }
+
+  #pse_usage_breakdown tbody tr:nth-child(odd) {
+    background-color: #E0E0E0;
+  }
+
+  #pse_usage_breakdown tbody tr td {}
+
+  #pse_usage_breakdown tbody tr td {
+    justify-content: flex-end;
+    position: relative;
+  }
+}
+
+/* Month Table */
+#daily_kwh_by_month th:nth-child(2), #daily_kwh_by_month td:nth-child(2) {
+  text-align: center;
+}
+
+#daily_kwh_by_month tbody tr:nth-child(odd) {
+  background-color: #e0e0e0;
+}
+
+#daily_kwh_by_month * {
+  border: none !important;
+}
+
+@media screen and (min-width: 993px) {
+  #daily_kwh_by_month {
+    display: flex;
+  }
+
+  #daily_kwh_by_month thead {
+    width: 60% !important;
+  }
+
+  #daily_kwh_by_month thead tr {
+    display: block !important;
+  }
+
+  #daily_kwh_by_month thead tr th {
+    display: flex;
+  }
+
+  #daily_kwh_by_month tbody {
+    width: 40% !important;
+  }
+
+  #daily_kwh_by_month tbody tr {
+    display: block !important;
+  }
+
+  #daily_kwh_by_month tbody tr td {
+    display: flex;
+  }
+
+  #daily_kwh_by_month thead {
+    width: 30% !important;
+  }
+
+  #daily_kwh_by_month tbody {
+    width: 80% !important;
+    display: flex;
+  }
+
+  #daily_kwh_by_month tr.usage_savings, #daily_kwh_by_month tr.storage_savings, #daily_kwh_by_month tr.export_savings_fit {
+    width: calc(100% / 3)
+  }
+
+  #daily_kwh_by_month tbody tr {
+    width: calc(100% / 12);
+  }
+}
+
+/* Your System & */
+
+#pse_your_system *, #pse_if_all_power_used * {
+    border: none;
+}
+
+#pse_your_system tr td:nth-child(odd), #pse_your_system tr th:nth-child(odd), 
+#pse_if_all_power_used tr td:nth-child(odd), #pse_if_all_power_used tr th:nth-child(odd) {
+  background-color: #e0e0e0;
 }

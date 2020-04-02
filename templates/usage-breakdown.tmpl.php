@@ -25,18 +25,18 @@ $table1 = PSE_Table::create("pse_usage_breakdown_total", array(
 $table2 = PSE_Table::create("daily_kwh_by_month", array(
   "thead"=> array("KWH Day", "Daily KWH by Month"),
   "tbody"=> array( // CSS Class based not value
-    array("txt_January", "January"),
-    array("txt_February", "February"),
-    array("txt_March", "March"),
-    array("txt_April", "April"),
+    array("txt_Jan", "January"),
+    array("txt_Feb", "February"),
+    array("txt_Mar", "March"),
+    array("txt_Apr", "April"),
     array("txt_May", "May"),
-    array("txt_June", "June"),
-    array("txt_July", "July"),
-    array("txt_August", "August"),
-    array("txt_September", "September"),
-    array("txt_October", "October"),
-    array("txt_November", "November"),
-    array("txt_December", "December"),
+    array("txt_Jun", "June"),
+    array("txt_Jul", "July"),
+    array("txt_Aug", "August"),
+    array("txt_Sep", "September"),
+    array("txt_Oct", "October"),
+    array("txt_Nov", "November"),
+    array("txt_Dec", "December"),
   )
 ));
 

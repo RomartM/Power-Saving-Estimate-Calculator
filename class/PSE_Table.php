@@ -2,9 +2,10 @@
 
 class PSE_Table {
 
-  private function create_tag($name, $content = "tmpl", $class=""){
+  private function create_tag($name, $content = "tmpl", $class="", $title=""){
     $tmpl_class = ( ( $class !== "" ) ? "class=\"{$class}\"":"");
-    $tmpl = "<ttg {$tmpl_class}>{$content}</ttg>";
+    $data_table = ( ( $name == "td" ) ? "data-title=\"{$title}\"": "");
+    $tmpl = "<ttg {$tmpl_class} {$data_table}>{$content}</ttg>";
     $tmpl = str_replace( "ttg", $name, $tmpl );
     return $tmpl;
   }
@@ -27,7 +28,7 @@ class PSE_Table {
       }else{
         $filter = strtolower(str_replace(" ", "_", $data_values[$val_iterator]));
       }
-      $tmpl .= self::create_tag("td", $txt, $filter);
+      $tmpl .= self::create_tag("td", $txt, $filter, $data_values[$val_iterator]);
     }
 
     return $tmpl;

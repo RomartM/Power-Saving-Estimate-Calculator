@@ -205,7 +205,6 @@
       }
 
       _get_battery_usable() {
-        console.log(this.battery_usage_dataset());
         return window.pse_utils._vlookup(fieldVal("battery_model"), this.battery_usage_dataset(), 3);
       }
 
