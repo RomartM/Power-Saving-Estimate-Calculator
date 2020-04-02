@@ -3,7 +3,7 @@
 * Plugin Name: Power Saving Estimate Calculator for Federal Energy Comparison
 * Plugin URI:
 * Description: Calculates estimated solar savings based on your electricity bill. Use '[pse-calc]' shortcode.
-* Version: 1.0
+* Version: 1.1
 * Author: RomartM
 * Author URI:
 **/
