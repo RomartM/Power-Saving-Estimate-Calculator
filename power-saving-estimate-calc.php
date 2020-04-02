@@ -10,7 +10,7 @@
 
 define('PSE_PLUGIN_PATH', plugin_dir_url( __FILE__ ));
 
-function PSEalculator( $overrides_attr ){
+function PSEcalculator( $overrides_attr ){
 
   // Attributes
   $overrides_attr = shortcode_atts(
@@ -32,7 +32,7 @@ function PSEalculator( $overrides_attr ){
   return $content;
 }
 
-add_shortcode( 'pse-calc', 'PSEalculator' );
+add_shortcode( 'pse-calc', 'PSEcalculator' );
 
 function pse_assets() {
     global $post;
