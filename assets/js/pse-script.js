@@ -8,11 +8,6 @@
     // Form Field ID's
     var field_ids = {};
 
-    // Output Tables
-    var table_your_system = jQuery("#pse_your_system");
-    var table_usage_breakdown = jQuery("#pse_usage_breakdown");
-    var table_if_all_powered_used = jQuery("pse_if_all_power_used");
-
     // Preset Plugin Datas
     var _preset_data = pse_json_vars["preset-data"];
     var default_currency = _preset_data.currency["value"];
@@ -105,7 +100,7 @@
       }
 
       _get_kwh_daily() {
-        return this.yourSystem._get_kwh_daily();
+        return ((((1 - fieldVal('system_loss_factor') / 100) * 100) * this.yourSystem._get_kwh_daily()) / 100);
       }
 
       _get_power_price() {
@@ -130,7 +125,7 @@
         this.table.setText(".current_kwh_rate", this._get_power_price());
         this.table.setText(".daily_saving", window.pse_utils._round(this._get_daily_saving(), 2));
         this.table.setText(".quarterly_saving", window.pse_utils._commas(window.pse_utils._round(this._get_quarterly_saving(), 2)));
-        this.table.setText(".annual_savings", window.pse_utils._commas(window.pse_utils._roundup(this._get_annual_saving(), 0)));
+        this.table.setText(".annual_savings", window.pse_utils._commas(window.pse_utils._round(this._get_annual_saving(), 0)));
       }
     }
 
@@ -184,21 +179,21 @@
       }
 
       _filer_daily_saving(value) {
-        if (value < 1) {
+        if (value == 0 || value == undefined || value == NaN) {
           return "-";
         }
         return default_currency.concat(window.pse_utils._round(value, 2));
       }
 
       _filer_quarterly_saving(value) {
-        if (value < 1) {
+        if (value == 0 || value == undefined || value == NaN) {
           return "-";
         }
         return default_currency.concat(window.pse_utils._commas(window.pse_utils._round(value, 0)));
       }
 
       _filer_annual_saving(value) {
-        if (value < 1) {
+        if (value == 0 || value == undefined || value == NaN) {
           return "-";
         }
         return default_currency.concat(window.pse_utils._commas(window.pse_utils._round(value, 0)));
