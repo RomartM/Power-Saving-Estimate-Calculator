@@ -15,7 +15,7 @@ function PSEcalculator( $overrides_attr ){
   // Attributes
   $overrides_attr = shortcode_atts(
     array(
-      'id' => 'video ID',
+      'id' => 'custom',
     ),
     $overrides_attr
   );
